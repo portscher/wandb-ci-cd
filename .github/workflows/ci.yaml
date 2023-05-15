@@ -1,0 +1,15 @@
+name: Playground Actions
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**.py'
+
+jobs:
+  Playground-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explain
+      - run: echo "This job was automatically triggered by a ${{ github.event_name }} event on branch ${{ github.ref }} in repository ${{ github.repository }}, running on a ${{ runner.os }} server hosted by GitHub."
