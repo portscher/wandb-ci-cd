@@ -20,3 +20,8 @@ jobs:
         run: echo "PAYLOAD:\n${PAYLOAD}\n"
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
+      - name: Who pushed?
+        run: echo "$PUSHER pushed this commit, mailto $EMAIL"
+        env:
+          PUSHER: ${{ github.event.pusher.name }}
+          EMAIL: ${{ github.event.pusher.email }}
