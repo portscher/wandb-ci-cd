@@ -11,7 +11,13 @@ jobs:
   Playground-Actions:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Explain
-        run: echo "This job was automatically triggered by a ${{ github.event_name }}
+        run: |
+          echo "This job was automatically triggered by a ${{ github.event_name }}
           event on branch ${{ github.ref }} in repository ${{ github.repository }},
           running on a ${{ runner.os }} server hosted by GitHub."
+      - name: Run .py script
+        run: |
+          pip install -r requirements.txt
+          python test.py
